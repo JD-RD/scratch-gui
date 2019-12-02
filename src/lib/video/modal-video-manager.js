@@ -1,4 +1,9 @@
+/* eslint-disable quote-props */
 import VideoProvider from './video-provider.js';
+
+// // Connect to the channel named "blob_bus"
+// let channel = new BroadcastChannel('blob_bus');
+
 /**
  * Video Manager for Camera Modal
  */
@@ -50,6 +55,17 @@ class ModalVideoManager {
         return this._canvas.toDataURL('image/png');
     }
 
+    // getImageSnapshot () {
+    //     // debugger;
+    //     // get blob of canvas
+    //     // eslint-disable-next-line prefer-arrow-callback
+    //     this._canvas.toBlob(function (blob) {
+    //         // broadcast blob
+    //         channel.postMessage({'type': 'image', 'image': blob, 'label': 'snapshot'});
+    //     }, 'image/png');
+
+    // }
+
     clearSnapshot () {
         this._drawFrames();
     }
@@ -57,6 +73,7 @@ class ModalVideoManager {
     disableVideo () {
         this._videoProvider.disableVideo();
     }
+    
 }
 
 export default ModalVideoManager;

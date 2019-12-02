@@ -1,5 +1,11 @@
+/* eslint-disable no-warning-comments */
+/* eslint-disable camelcase */
+/* eslint-disable valid-jsdoc */
 import {requestVideoStream, requestDisableVideo} from './camera.js';
 import log from '../log.js';
+
+// Connect to the channel named "blob_bus"
+let channel = new BroadcastChannel('blob_bus');
 
 /**
  * Video Manager for video extensions.
@@ -281,6 +287,48 @@ class VideoProvider {
             this._workspace.push(workspace);
         }
         return workspace;
+    }
+
+    getImageSnapshot () {
+        // debugger;
+        // get blob of canvas
+        // eslint-disable-next-line prefer-arrow-callback
+        this._canvas.toBlob(function (blob) {
+            // broadcast blob
+            channel.postMessage({type: 'image', image: blob, label: 'snapshot'});
+        }, 'image/png');
+
+    }
+
+    /**
+     * Added by Sarah to take snapshots in clarifai and vision extensions (hackidemia gitbub)
+     */
+    broadcastBlob () {
+        if (!this.videoReady) {
+            return null;
+        }
+        const hidden_canvas = document.createElement('canvas');
+        const width = this._video.videoWidth;
+        const height = this._video.videoHeight;
+
+        // Context object for working with the canvas.
+        const context = hidden_canvas.getContext('2d');
+    
+        // Set the canvas to the same dimensions as the video.
+        hidden_canvas.width = width;
+        hidden_canvas.height = height;
+    
+        // Draw a copy of the current frame from the video on the canvas.
+        context.drawImage(this._video, 0, 0, width, height);
+    
+        // Get an image dataURL from the canvas.
+        this.hidden_canvas.toBlob(blob => {
+            // broadcast blob
+            channel.postMessage({type: 'image', image: blob, label: 'snapshot'});
+        }, 'image/png');
+
+        // Sarah's code
+        // const imageDataURL = hidden_canvas.toDataURL('/png');
     }
 }
 

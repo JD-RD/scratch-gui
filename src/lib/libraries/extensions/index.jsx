@@ -75,6 +75,28 @@ export default [
     {
         name: (
             <FormattedMessage
+                defaultMessage="jdeduq"
+                description="Name for the 'jdeduq' extension"
+                id="gui.extension.jdeduq.name"
+            />
+        ),
+        extensionId: 'jdeduq',
+        collaborator: 'JD Theriault',
+        iconURL: dataviewerIconURL,
+        insetIconURL: dataviewerInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="jdeduq Scratch 3.0 extension"
+                description="Description for the 'jdeduq' extension"
+                id="gui.extension.jdeduq.description"
+            />
+        ),
+        featured: true,
+        disabled: false
+    },
+    {
+        name: (
+            <FormattedMessage
                 defaultMessage="Music"
                 description="Name for the 'Music' extension"
                 id="gui.extension.music.name"
