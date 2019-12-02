@@ -322,7 +322,7 @@ class VideoProvider {
         context.drawImage(this._video, 0, 0, width, height);
     
         // Get an image dataURL from the canvas.
-        this.hidden_canvas.toBlob(blob => {
+        hidden_canvas.toBlob(blob => {
             // broadcast blob
             channel.postMessage({type: 'image', image: blob, label: 'snapshot'});
         }, 'image/png');
