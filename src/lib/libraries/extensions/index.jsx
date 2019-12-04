@@ -1,8 +1,8 @@
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
 
-import dataviewerIconURL from './dataviewer/dataviewer.png';
-import dataviewerInsetIconURL from './dataviewer/dataviewer-small.svg';
+import kcjaiIconURL from './kcjai/kcjai.png';
+import kcjaiInsetIconURL from './kcjai/kcjai-small.svg';
 
 import musicIconURL from './music/music.png';
 import musicInsetIconURL from './music/music-small.svg';
@@ -53,42 +53,20 @@ export default [
     {
         name: (
             <FormattedMessage
-                defaultMessage="Data Viewer"
-                description="Name for the 'Data Viewer' extension"
-                id="gui.extension.dataviewer.name"
+                defaultMessage="KCJ AI"
+                description="Name for the 'KCJ AI' extension"
+                id="gui.extension.kcjai.name"
             />
         ),
-        extensionId: 'dataviewer',
-        collaborator: 'Cassia Fernandez and João Adriano Freitas',
-        iconURL: dataviewerIconURL,
-        insetIconURL: dataviewerInsetIconURL,
-        description: (
-            <FormattedMessage
-                defaultMessage="Play with your data."
-                description="Description for the 'Data Viewer' extension"
-                id="gui.extension.dataviewer.description"
-            />
-        ),
-        featured: true,
-        disabled: false
-    },
-    {
-        name: (
-            <FormattedMessage
-                defaultMessage="jdeduq"
-                description="Name for the 'jdeduq' extension"
-                id="gui.extension.jdeduq.name"
-            />
-        ),
-        extensionId: 'jdeduq',
+        extensionId: 'kcjai',
         collaborator: 'JD Theriault',
-        iconURL: dataviewerIconURL,
-        insetIconURL: dataviewerInsetIconURL,
+        iconURL: kcjaiIconURL,
+        insetIconURL: kcjaiInsetIconURL,
         description: (
             <FormattedMessage
-                defaultMessage="jdeduq Scratch 3.0 extension"
-                description="Description for the 'jdeduq' extension"
-                id="gui.extension.jdeduq.description"
+                defaultMessage="KCJ AI sets of blocks."
+                description="Description for the 'KCJ AI' extension"
+                id="gui.extension.kcjai.description"
             />
         ),
         featured: true,
